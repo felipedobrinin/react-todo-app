@@ -82,3 +82,31 @@ body{
     @apply bg-background text-foreground;
   }
 }
+
+.modal{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.show-modal {
+  animation: 250ms show-modal forwards;
+}
+
+@keyframes show-modal {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  2%{
+    visibility: visible;
+  }
+  100%{
+    opacity: 1;
+  }
+}
