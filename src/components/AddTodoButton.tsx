@@ -13,9 +13,9 @@ interface Props {
 
 export const AddTodoButton : React.FC<Props> = ({openModal}) => {
   return (
-    <Button onClick={openModal} className="flex gap-1 w-1/4">
+    <Button onClick={openModal} className="flex gap-1 w-1/3">
         <CardStackPlusIcon />
-        Add
+        <span>Create a Todo</span>
     </Button>
   )
 }
