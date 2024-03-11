@@ -9,7 +9,7 @@ import { AddTodoModal } from "./components/AddTodoModal";
 
 function App() {
   const [filter, setFilter] = useState("");
-  const [ openModal, setOpenModal ] = useState(true);
+  const [ openModal, setOpenModal ] = useState(false);
 
   useEffect(() => {
     console.log(filter);
@@ -19,8 +19,11 @@ function App() {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <main className="w-[500px] grid gap-2">
 
-        <FilterInput filter={filter} setFilter={setFilter} />
-        <AddTodoButton openModal={() => setOpenModal(!openModal)}/>
+        <FilterInput filter={filter} setFilter={setFilter}/>
+        <AddTodoButton openModal={() => {
+          setOpenModal(!openModal)
+          
+        }}/>
 
 
         <AddTodoModal isOpen={openModal} closeModal={() => setOpenModal(false)}/>    
