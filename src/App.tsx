@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { SearchInput } from "@/components/SearchInput";
-import { Todo } from "@/lib/Todo";
+// import { Todo } from "@/lib/Todo";
 import { useTodos } from "@/hooks/useTodos";
 import { TodoList } from "@/components/TodoList";
 import { AddTodoModal } from "@/components/AddTodoModal"

@@ -1,6 +1,6 @@
 import { Todo } from "@/lib/Todo";
-import { TodoItem } from "@/components/TodoItem";
-import { useRef, useState } from "react";
+// import { TodoItem } from "@/components/TodoItem";
+import { useState } from "react";
 
 interface Props {
   addTodo: (todo: Todo) => void;
