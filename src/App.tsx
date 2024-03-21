@@ -1,35 +1,38 @@
-import { ThemeProvider } from "@/components/theme-provider";
+import { useState } from "react";
 
-
-// import { useEffect, useState } from "react";
-import { FilterInput } from "./components/FilterInput";
-import { useState, useEffect } from "react";
-import { AddTodoButton } from "./components/AddTodoButton";
-import { AddTodoModal } from "./components/AddTodoModal";
+import { SearchInput } from "@/components/SearchInput";
+import { Todo } from "@/lib/Todo";
+import { useTodos } from "@/hooks/useTodos";
+import { TodoList } from "@/components/TodoList";
+import { AddTodoModal } from "@/components/AddTodoModal"
 
 function App() {
-  const [filter, setFilter] = useState("");
-  const [ openModal, setOpenModal ] = useState(false);
+  const [search, setSearch] = useState("");
+  const { todos, addTodo, markCompleted } = useTodos();
+  const [openModal, setOpenModal] = useState(false);
 
-  useEffect(() => {
-    console.log(filter);
-  }, [filter]);
+  function handleButton() {
+    setOpenModal(!openModal);
+  }
 
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <main className="w-[500px] grid gap-2">
-
-        <FilterInput filter={filter} setFilter={setFilter}/>
-        <AddTodoButton openModal={() => {
-          setOpenModal(!openModal)
-          
-        }}/>
-
-
-        <AddTodoModal isOpen={openModal} closeModal={() => setOpenModal(false)}/>    
-
+    <div className="app">
+      <main>
+        <div className="flex flex-col gap-4 card p-6">
+          <h1 className="text-5xl font-bold text-center">TODOs</h1>
+            <SearchInput value={search} setSearch={setSearch} />
+        </div>
+          <TodoList
+            todos={todos}
+            markCompleted={markCompleted}
+            search={search}
+          />
       </main>
-    </ThemeProvider>
+      
+
+      <button className="add-button text-2xl" onClick={handleButton}>Add Todo</button>
+      <AddTodoModal addTodo={addTodo} openModal={openModal} setOpenModal={setOpenModal}/>
+    </div>
   );
 }
 

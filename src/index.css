@@ -1,46 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 0, 0%, 11%;
+    --foreground: 0, 0%, 18%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
- 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
- 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
- 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
- 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    /* --accent: 187 66% 63%; */
+    --accent : 180, 69%, 75%;
+    --danger : 0, 100%, 85%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
- 
-    --radius: 0.5rem;
-  }
- 
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
- 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --input-background : 0, 0%, 13%;
+
+    --radius : 6px;
+    --search-radius : 12px;
  
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
@@ -53,10 +28,7 @@
  
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
- 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
  
@@ -64,50 +36,169 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
+
 }
 
-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: hsl(var(--background));
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
   height: 100vh;
   height: 100dvh;
-}
- 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+  width: 100vw;
+
+  margin: 0;
+  padding: 5%;
 }
 
-.modal{
+
+.card {
+  background-color: hsl(var(--foreground));
+  border-radius: var(--radius);
+}
+
+main{
+  margin: auto;
+  place-self: center;
+  width: min(95%, 700px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.search-input {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+
+  background-color: hsl(var(--input-background));
+  outline: 0px solid transparent;
+  border-radius: var(--search-radius);
+
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.7rem;
+
+  transition: outline 50ms linear;
+}
+
+
+
+
+.search-input input {
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+}
+
+
+.search-input:has(input:focus), .search-input:has(input:active), .search-input:hover {
+  outline: 2px solid hsl(var(--accent));
+}
+
+.accent-color{
+  color: hsl(var(--accent))
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: 90% auto;
+  border-radius: var(--radius);
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.add-button {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10%;
+
+  background-color: hsl(var(--accent));
+  color: black;
+  border-radius: 30px;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+}
+
+.modal { 
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  background-color: hsl(var(--foreground));
+  border-radius: var(--radius);
+  padding: 2rem;
+
+  width: min(95%, 600px);
+
+  border : 1px solid #5c5c5c;
 }
 
 
-.show-modal {
-  animation: 250ms show-modal forwards;
+.modal-input {
+  background-color: hsl(var(--input-background));
+  outline: 0px solid transparent;
+  border-radius: var(--search-radius);
+
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.7rem;
+
+  transition: outline 50ms linear;
 }
 
-
-.hide-modal {
-  visibility: hidden;
+.modal-input:focus, .modal-input:active, .modal-input:hover {
+  outline: 2px solid hsl(var(--accent));
 }
 
-@keyframes show-modal {
-  0% {
-    opacity: 0;
-  }
-  2%{
-    visibility: visible;
-  }
-  100%{
-    opacity: 1;
-  }
+.modal-add-button {
+  background-color: hsl(var(--accent));
+  color: black;
+  border-radius: 30px;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.modal-cancel-button {
+  background-color: hsl(var(--danger));
+  color: black;
+  border-radius: 30px;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }

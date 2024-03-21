@@ -1,54 +1,63 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
-import { Cross1Icon } from "@radix-ui/react-icons";
-import { PlusIcon } from "@radix-ui/react-icons";
-import { TodoInput } from "./TodoInput";
-import { Button } from "./ui/button";
-import { useState } from "react";
+import { Todo } from "@/lib/Todo";
+import { TodoItem } from "@/components/TodoItem";
+import { useRef, useState } from "react";
 
 interface Props {
-  isOpen: boolean;
-  closeModal: () => void;
+  addTodo: (todo: Todo) => void;
+  openModal: boolean;
+  setOpenModal: (state: boolean) => void;
 }
 
-export const AddTodoModal: React.FC<Props> = ({ isOpen, closeModal }) => {
-  const [todoName, setTodoName] = useState("");
+export const AddTodoModal: React.FC<Props> = ({
+  addTodo,
+  openModal,
+  setOpenModal,
+}) => {
+  const [text, setText] = useState("");
 
-  function resetInput() {
-    setTodoName("");
+  function handleAddTodo() {
+    if (!text) return;
+    addTodo({
+      id: Date.now().toString(),
+      text: text,
+      completed: false,
+    } as Todo);
+
+    setOpenModal(false);
+    setText("");
+  }
+
+  function handleCancel(){
+    setOpenModal(false);
+    setText("");
   }
 
   return (
-    <div className={`${isOpen ? "show-modal" : "hide-modal"} modal w-[min(100%,450px)]`}>
-      <Card>
-        <CardHeader className="grid grid-flow-col grid-cols-[90%,auto] items-center ">
-          <h2 className="text-xl">Add Todo</h2>
-          <button
-            onClick={() => {
-              resetInput();
-              closeModal();
-            }}
-            className=" self-start flex justify-end items-center m-0"
-          >
-            <Cross1Icon />
-          </button>
-        </CardHeader>
-
-        <CardContent className="grid gap-2">
-          <TodoInput todoName={todoName} setTodoName={setTodoName} />
-          <Button
-            className="ml-auto flex gap-1 w-1/4"
-            onClick={() => {
-              resetInput();
-              //todo Add modal
-              closeModal();
-            }}
-          >
-            <PlusIcon />
-            Add
-          </Button>
-        </CardContent>
-      </Card>
+    <div
+      className={`${
+        openModal ? "visible" : "invisible"
+      } modal flex flex-col gap-4`}
+    >
+      <input
+        type="text"
+        name=""
+        id=""
+        placeholder="Todo text"
+        className="modal-input"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <div className="flex justify-between">
+        <button
+          className="modal-cancel-button"
+          onClick={handleCancel}
+        >
+          Cancel
+        </button>
+        <button className="modal-add-button" onClick={handleAddTodo}>
+          Add
+        </button>
+      </div>
     </div>
   );
 };
