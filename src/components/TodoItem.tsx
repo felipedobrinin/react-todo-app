@@ -8,8 +8,8 @@ interface Props {
 
 export const TodoItem: React.FC<Props> = ({ todo, markCompleted }) => {
   return (
-    <div className="todo-item">
-      <span>{todo.text}</span>
+    <div className="todo-item card p-2">
+      <span className="text-xl">{todo.text}</span>
       <input
         type="checkbox"
         name=""

@@ -9,12 +9,17 @@ interface Props {
 
 export const TodoList: React.FC<Props> = ({ todos, addTodo, markCompleted, search }) => {
     return (
-      <div className="todo-list">
-        {todos.map( (todo : Todo) => {
-          return (
-            <TodoItem todo={todo} markCompleted={markCompleted}/>
-          )
-        })}
+      <div className="todo-list mb-10">
+        {
+        todos.length ? 
+          todos.map( (todo : Todo) => {
+            return (
+              <TodoItem todo={todo} markCompleted={markCompleted}/>
+            )
+          }) 
+          : 
+          <span className="text-2xl text-center">There is no Todos</span>
+        }
       </div>
     );
   };
