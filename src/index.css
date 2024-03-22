@@ -118,7 +118,9 @@ main{
 
 .todo-item {
   display: grid;
-  grid-template-columns: 90% auto;
+  grid-template-columns: min-content auto min-content;
+  align-items: center;
+  gap: 1rem;
   border-radius: var(--radius);
 }
 
@@ -196,6 +198,27 @@ main{
   color: black;
   border-radius: 30px;
 
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+
+.remove-todo-button {
+  background-color: hsl(var(--danger));
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-left: 1rem;
   padding-right: 1rem;
 
