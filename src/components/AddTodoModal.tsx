@@ -1,6 +1,6 @@
 import { Todo } from "@/lib/Todo";
 // import { TodoItem } from "@/components/TodoItem";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface Props {
   addTodo: (todo: Todo) => void;
@@ -15,6 +15,8 @@ export const AddTodoModal: React.FC<Props> = ({
 }) => {
   const [text, setText] = useState("");
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
   function handleAddTodo() {
     if (!text) return;
     addTodo({
@@ -27,10 +29,29 @@ export const AddTodoModal: React.FC<Props> = ({
     setText("");
   }
 
-  function handleCancel(){
+  function handleCancel() {
     setOpenModal(false);
     setText("");
   }
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value)
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      console.log('Enter key pressed');
+      handleAddTodo();
+    }
+  };
+
+  useEffect(() => {
+    // Focus on input field when modal opens
+
+    if (openModal && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [openModal, inputRef]);
 
   return (
     <div
@@ -45,13 +66,12 @@ export const AddTodoModal: React.FC<Props> = ({
         placeholder="Todo text"
         className="modal-input"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyPress}
+        ref={inputRef}
       />
       <div className="flex justify-between">
-        <button
-          className="modal-cancel-button"
-          onClick={handleCancel}
-        >
+        <button className="modal-cancel-button" onClick={handleCancel}>
           Cancel
         </button>
         <button className="modal-add-button" onClick={handleAddTodo}>
