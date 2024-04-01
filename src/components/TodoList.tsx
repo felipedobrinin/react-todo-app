@@ -1,5 +1,9 @@
 import { Todo } from "@/lib/Todo";
 import { TodoItem } from "@/components/TodoItem";
+
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+
+
 interface Props {
   todos: Todo[];
   markCompleted: (id: string) => void;
@@ -13,13 +17,15 @@ export const TodoList: React.FC<Props> = ({
   search,
   showCompleted,
 }) => {
+
+  const [parent] = useAutoAnimate()
   return (
-    <div className="todo-list mb-10">
+    <div className="todo-list mb-10" ref={parent}>
       {todos.length ? (
         todos.map((todo: Todo) => {
           if (!todo.text.toLowerCase().includes(search.toLowerCase())) return;
           if (!showCompleted && todo.completed ) return;
-          return <TodoItem todo={todo} markCompleted={markCompleted} />;
+          return <TodoItem key={todo.id} todo={todo} markCompleted={markCompleted} />;
         })
       ) : (
         <span className="text-2xl text-center">There is no Todos</span>
