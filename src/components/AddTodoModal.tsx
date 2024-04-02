@@ -17,6 +17,11 @@ export const AddTodoModal: React.FC<Props> = ({
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+  function closeModal() {
+    setOpenModal(false);
+    setText("");
+  }
+
   function handleAddTodo() {
     if (!text) return;
     addTodo({
@@ -25,33 +30,41 @@ export const AddTodoModal: React.FC<Props> = ({
       completed: false,
     } as Todo);
 
-    setOpenModal(false);
-    setText("");
-  }
-
-  function handleCancel() {
-    setOpenModal(false);
-    setText("");
+    closeModal();
   }
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value)
+    setText(event.target.value);
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      console.log('Enter key pressed');
+    if (event.key === "Enter") {
+      console.log("Enter key pressed");
       handleAddTodo();
     }
   };
 
   useEffect(() => {
     // Focus on input field when modal opens
-
     if (openModal && inputRef.current) {
       inputRef.current.focus();
     }
   }, [openModal, inputRef]);
+
+  const keyDownHandler = (event: KeyboardEvent) => {
+    if (event.ctrlKey && event.key === "c") {
+      console.log("You just pressed ctrl + c for closing the modal!");
+      closeModal();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", keyDownHandler);
+
+    return () => {
+      window.removeEventListener("keydown", keyDownHandler);
+    };
+  });
 
   return (
     <div
@@ -71,10 +84,11 @@ export const AddTodoModal: React.FC<Props> = ({
         ref={inputRef}
       />
       <div className="flex justify-between">
-        <button className="modal-cancel-button" onClick={handleCancel}>
-          Cancel
+        <button className="modal-button bg-danger" onClick={closeModal}>
+          <span>Cancel </span>
+          {/* <span className="text-sm text-zinc-700"><kbd>ctrl</kbd>+<kbd>C</kbd></span> */}
         </button>
-        <button className="modal-add-button" onClick={handleAddTodo}>
+        <button className="modal-button bg-accent" onClick={handleAddTodo}>
           Add
         </button>
       </div>
