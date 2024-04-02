@@ -19,9 +19,9 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className="app pt-[1%]  md:pt-8">
       <main>
-        <div className="flex flex-col gap-4 card p-6">
+        <div className="flex flex-col gap-4 card p-4 md:p-6">
           <h1 className="text-5xl font-bold text-center">TODOs</h1>
           <SearchInput value={search} setSearch={setSearch} />
           <div className="flex gap-2">

@@ -59,10 +59,8 @@ body {
   height: 100vh;
   height: 100dvh;
   width: 100vw;
-
-  margin: 0;
-  padding: 5%;
 }
+
 
 
 .card {
@@ -70,11 +68,11 @@ body {
   border-radius: var(--radius);
 }
 
+
 main{
   margin: auto;
   place-self: center;
-  width: min(95%, 700px);
-
+  width: min(98%, 700px);
   display: flex;
   flex-direction: column;
   gap: 1rem;

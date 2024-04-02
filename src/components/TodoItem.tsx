@@ -11,7 +11,7 @@ interface Props {
 
 export const TodoItem: React.FC<Props> = ({ todo, markCompleted, removeTodo }) => {
   return (
-    <div className="todo-item card px-6 py-4">
+    <div className="todo-item card px-4 py-4 md:px-6">
       <input
         type="checkbox"
         name=""
