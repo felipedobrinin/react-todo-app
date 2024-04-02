@@ -6,11 +6,12 @@ import { FaRegTrashAlt } from "react-icons/fa";
 interface Props {
   todo: Todo;
   markCompleted: (id: string) => void;
+  removeTodo : (id: string) => void;
 }
 
-export const TodoItem: React.FC<Props> = ({ todo, markCompleted }) => {
+export const TodoItem: React.FC<Props> = ({ todo, markCompleted, removeTodo }) => {
   return (
-    <div className="todo-item card p-4">
+    <div className="todo-item card px-6 py-4">
       <input
         type="checkbox"
         name=""
@@ -26,7 +27,7 @@ export const TodoItem: React.FC<Props> = ({ todo, markCompleted }) => {
       >
         {todo.text}
       </span>
-      <button className="remove-todo-button">
+      <button className="remove-todo-button hover:scale-105 transition-transform active:scale-100" onClick={() => removeTodo(todo.id)}>
         <FaRegTrashAlt className="text-neutral-800 text-2xl"/>
       </button>
     </div>
