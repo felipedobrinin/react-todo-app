@@ -174,8 +174,7 @@ button:focus.bg-danger  {
 
   background-color: hsl(var(--foreground));
   border-radius: var(--radius);
-  padding: 2rem;
-
+  
   width: min(95%, 600px);
 
   border : 2px solid #3a3a3a;
