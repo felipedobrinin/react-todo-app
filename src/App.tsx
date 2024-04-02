@@ -47,7 +47,7 @@ function App() {
 
       <button
         className={`${openModal ? "bg-danger" : "bg-accent"}
-         add-button text-4xl`}
+         add-button p-4 rounded-full md:text-5xl text-7xl`}
         onClick={handleButton}
       >
         <GoPlus
