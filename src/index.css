@@ -178,7 +178,7 @@ button:focus.bg-danger  {
 
   width: min(95%, 600px);
 
-  border : 1px solid #5c5c5c;
+  border : 2px solid #3a3a3a;
 }
 
 
