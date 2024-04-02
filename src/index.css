@@ -136,17 +136,9 @@ main{
   bottom: 10%;
 
   color: black;
-  border-radius: 30px;
-
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-
   scale: 1;
 
-  transition: background-color 100ms linear, outline 100ms linear, scale 100ms linar;
+  transition: background-color 100ms linear, outline 100ms linear, scale 100ms linear;
 }
 
 .add-button:hover {
@@ -159,13 +151,11 @@ main{
 
 
 button:focus{
-  border-radius: 30px;
   outline: 4px solid hsl(var(--accent), 0.5);
   outline-offset: 2px;
 }
 
 button:focus.bg-danger  {
-  border-radius: 30px;
   outline: 4px solid hsl(var(--danger), 0.5);
   outline-offset: 2px;
 }
