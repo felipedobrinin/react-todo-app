@@ -27,10 +27,14 @@ export function useTodos(){
         setTodos(updatedTodos);
     }
 
-
+    function removeTodo(id : string) {
+        setTodos(todos.filter(todo => todo.id != id))
+    }
 
     return {
-        todos, addTodo,
+        todos, 
+        addTodo, 
+        removeTodo,
         markCompleted,
     }
 
