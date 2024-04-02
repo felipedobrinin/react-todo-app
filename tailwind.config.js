@@ -16,7 +16,10 @@ export default {
       },
     },
     extend: {
-      colors: {},
+      colors: {
+        accent : "#93ebeb",
+        danger : "#ffb3b3"
+      },
     },
     plugins: [],
   },
