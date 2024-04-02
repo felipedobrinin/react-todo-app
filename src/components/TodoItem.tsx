@@ -27,7 +27,7 @@ export const TodoItem: React.FC<Props> = ({ todo, markCompleted, removeTodo }) =
       >
         {todo.text}
       </span>
-      <button className="remove-todo-button hover:scale-105 transition-transform active:scale-100" onClick={() => removeTodo(todo.id)}>
+      <button className="remove-todo-button bg-danger hover:scale-105 transition-transform active:scale-100" onClick={() => removeTodo(todo.id)}>
         <FaRegTrashAlt className="text-neutral-800 text-2xl"/>
       </button>
     </div>

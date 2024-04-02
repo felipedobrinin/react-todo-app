@@ -11,24 +11,24 @@
     /* --accent: 187 66% 63%; */
     --accent : 180, 69%, 75%;
     --danger : 0, 100%, 85%;
-
+    
     --input-background : 0, 0%, 13%;
 
     --radius : 6px;
     --search-radius : 12px;
- 
+    
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
  
     --primary: 0 0% 98%;
     --primary-foreground: 240 5.9% 10%;
- 
+    
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
- 
+    
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-
+    
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
  
@@ -47,7 +47,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: hsl(var(--background));
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -139,11 +139,18 @@ main{
   transition: background-color 100ms linear, outline 100ms linear, scale 100ms linear;
 }
 
-.add-button:hover {
+
+button{
+  scale: 1;
+  border-radius: 30px;
+  transition: outline 100ms linear, scale 100ms linear;
+}
+
+button:hover {
   scale: 1.05;
 }
 
-.add-button:active {
+button:active {
   scale: 1;
 }
 
@@ -212,8 +219,6 @@ button:focus.bg-danger  {
 
 
 .remove-todo-button {
-  background-color: hsl(var(--danger));
-  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
