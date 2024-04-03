@@ -10,7 +10,7 @@ import { GoPlus } from "react-icons/go";
 
 function App() {
   const [search, setSearch] = useState("");
-  const { todos, addTodo, removeTodo, markCompleted } = useTodos();
+  const {todos, addTodo, removeTodo, markCompleted} = useTodos();
   const [openModal, setOpenModal] = useState(false);
   const [showCompleted, setShowCompleted] = useState(true);
 
