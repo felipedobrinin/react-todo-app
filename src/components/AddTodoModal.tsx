@@ -46,7 +46,6 @@ export const AddTodoModal: React.FC<Props> = ({
 
   useEffect(() => {
     // Focus on input field when modal opens
-    console.log("Focus Effect")
     if (openModal && inputRef.current) {
       inputRef.current.focus()
     }
