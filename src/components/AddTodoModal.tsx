@@ -1,5 +1,5 @@
 import { Todo } from "@/lib/Todo";
-// import { TodoItem } from "@/components/TodoItem";
+
 import { useState, useRef, useEffect } from "react";
 
 interface Props {
@@ -46,8 +46,9 @@ export const AddTodoModal: React.FC<Props> = ({
 
   useEffect(() => {
     // Focus on input field when modal opens
+    console.log("Focus Effect")
     if (openModal && inputRef.current) {
-      inputRef.current.focus();
+      inputRef.current.focus()
     }
   }, [openModal, inputRef]);
 
@@ -69,8 +70,8 @@ export const AddTodoModal: React.FC<Props> = ({
   return (
     <div
       className={`${
-        openModal ? "visible opacity-100" : "invisible opacity-0"
-      } modal flex flex-col gap-4  p-4 md:p-8 transition-all `}
+        openModal ? "visible" : "invisible"
+      } modal flex flex-col gap-4 p-4 md:p-8`}
     >
       <input
         type="text"
