@@ -14,7 +14,7 @@ export const TodoItem: React.FC<Props> = ({
   removeTodo,
 }) => {
   return (
-    <div className="todo-item card pl-4 [&>*]:py-4 md:pl-6">
+    <div className="todo-item card pl-4 [&>*]:py-4 md:pl-6 last:mb-40">
       <input
         type="checkbox"
         name=""
