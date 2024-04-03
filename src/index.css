@@ -234,3 +234,8 @@ button:focus.bg-danger  {
 .accent-color{
   color: hsl(var(--accent))
 }
+
+
+input[type="checkbox"]{
+  accent-color: hsl(var(--accent));
+}
