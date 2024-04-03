@@ -10,7 +10,7 @@ import { GoPlus } from "react-icons/go";
 
 function App() {
   const [search, setSearch] = useState("");
-  const {todos, addTodo, removeTodo, markCompleted} = useTodos();
+  const { todos, addTodo, removeTodo, markCompleted } = useTodos();
   const [openModal, setOpenModal] = useState(false);
   const [showCompleted, setShowCompleted] = useState(true);
 
@@ -19,31 +19,31 @@ function App() {
   }
 
   return (
-    <div className="app pt-[2.5%]  md:pt-8">
-      <main>
-        <div className="flex flex-col gap-4 card p-4 md:p-6">
-          <h1 className="text-5xl font-bold text-center">TODOs</h1>
-          <SearchInput value={search} setSearch={setSearch} />
-          <div className="flex gap-2">
-            <input
-              className="checkbox"
-              type="checkbox"
-              name=""
-              id="show-completed"
-              checked={showCompleted}
-              onChange={() => setShowCompleted(!showCompleted)}
-            />
-            <label htmlFor="show-completed">Show completed todos</label>
-          </div>
+    <div className="app">
+      <header className="flex flex-col gap-4  p-4 md:p-6">
+        <h1 className="text-5xl font-bold text-center">TODOs</h1>
+        <SearchInput value={search} setSearch={setSearch} />
+        <div className="flex gap-2">
+          <input
+            className="checkbox"
+            type="checkbox"
+            name=""
+            id="show-completed"
+            checked={showCompleted}
+            onChange={() => setShowCompleted(!showCompleted)}
+          />
+          <label htmlFor="show-completed">Show completed todos</label>
         </div>
-        <TodoList
-          todos={todos}
-          markCompleted={markCompleted}
-          search={search}
-          showCompleted={showCompleted}
-          removeTodo={removeTodo}
-        />
-      </main>
+      </header>
+
+      <main>
+      <TodoList
+        todos={todos}
+        markCompleted={markCompleted}
+        search={search}
+        showCompleted={showCompleted}
+        removeTodo={removeTodo}
+      />
 
       <button
         className={`${openModal ? "bg-danger" : "bg-accent"}
@@ -62,6 +62,12 @@ function App() {
         openModal={openModal}
         setOpenModal={setOpenModal}
       />
+      </main>
+      
+
+      <footer>
+        
+      </footer>
     </div>
   );
 }
