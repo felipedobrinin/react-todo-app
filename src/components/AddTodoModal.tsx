@@ -87,7 +87,6 @@ export const AddTodoModal: React.FC<Props> = ({
       <div className="flex justify-between">
         <button className="modal-button bg-danger" onClick={closeModal}>
           <span>Cancel </span>
-          {/* <span className="text-sm text-zinc-700"><kbd>ctrl</kbd>+<kbd>C</kbd></span> */}
         </button>
         <button className="modal-button bg-accent" onClick={handleAddTodo}>
           Add
