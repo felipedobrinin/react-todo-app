@@ -52,8 +52,8 @@ export const AddTodoModal: React.FC<Props> = ({
   }, [openModal, inputRef]);
 
   const keyDownHandler = (event: KeyboardEvent) => {
-    if (event.ctrlKey && event.key === "c") {
-      console.log("You just pressed ctrl + c for closing the modal!");
+    if (event.altKey && event.key === "c") {
+      console.log("You just pressed Alt + C for closing the modal!");
       closeModal();
     }
   };
