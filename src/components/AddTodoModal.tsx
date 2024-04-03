@@ -70,8 +70,8 @@ export const AddTodoModal: React.FC<Props> = ({
   return (
     <div
       className={`${
-        openModal ? "visible" : "invisible"
-      } modal flex flex-col gap-4 p-4 md:p-8`}
+        openModal ? "visible opacity-100" : "invisible opacity-0"
+      } modal flex flex-col gap-4 p-4 transition-[opacity] duration-300 md:p-8`}
     >
       <input
         type="text"
