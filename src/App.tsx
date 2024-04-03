@@ -19,7 +19,7 @@ function App() {
   }
 
   return (
-    <div className="app pt-[1%]  md:pt-8">
+    <div className="app pt-[2.5%]  md:pt-8">
       <main>
         <div className="flex flex-col gap-4 card p-4 md:p-6">
           <h1 className="text-5xl font-bold text-center">TODOs</h1>
