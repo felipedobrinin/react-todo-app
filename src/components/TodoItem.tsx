@@ -14,12 +14,9 @@ export const TodoItem: React.FC<Props> = ({
   removeTodo,
 }) => {
   return (
-    <div className="todo-item card pl-4 [&>*]:py-4 md:pl-6 last:mb-48">
+    <div className="todo-item">
       <input
         type="checkbox"
-        name=""
-        id=""
-        className="checkbox"
         checked={todo.completed}
         onChange={() => markCompleted(todo.id)}
       />
@@ -34,7 +31,7 @@ export const TodoItem: React.FC<Props> = ({
         className="remove-todo-button bg-danger"
         onClick={() => removeTodo(todo.id)}
       >
-        <FaRegTrashAlt className="text-neutral-800 text-2xl" />
+        <FaRegTrashAlt className="text-2xl" />
       </button>
     </div>
   );

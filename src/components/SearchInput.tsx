@@ -9,10 +9,9 @@ interface Props {
 }
 
 export const SearchInput: React.FC<Props> = ({ value, setSearch }) => {
-
   const inputRef = useRef<HTMLInputElement>(null);
-  function handleClick(){
-    inputRef?.current?.focus()
+  function handleClick() {
+    inputRef?.current?.focus();
   }
 
   const keyDownHandler = (event: KeyboardEvent) => {
@@ -31,8 +30,11 @@ export const SearchInput: React.FC<Props> = ({ value, setSearch }) => {
   });
 
   return (
-    <div className="search-input py-2 px-3 " onClick={handleClick}>
-      <FaSearch className="text-accent"/>
+    <div
+      className="search-input text-input"
+      onClick={handleClick}
+    >
+      <FaSearch className="text-accent" />
       <Input
         value={value}
         onChange={(e) => {
@@ -42,7 +44,9 @@ export const SearchInput: React.FC<Props> = ({ value, setSearch }) => {
         placeholder="Search..."
         ref={inputRef}
       />
-      <span className="text-sm text-zinc-700"><kbd>ctrl</kbd>+<kbd>/</kbd></span>
+      <span className="text-sm text-zinc-700">
+        <kbd>ctrl</kbd>+<kbd>/</kbd>
+      </span>
     </div>
   );
 };

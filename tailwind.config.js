@@ -15,12 +15,21 @@ export default {
         "2xl": "1400px",
       },
     },
-    extend: {
+    extend : {
+      borderRadius: {
+        'normal' : 'var(--radius)',
+      },
       colors: {
-        accent : "#93ebeb",
-        danger : "#ffb3b3"
+        accent: 'hsl(var(--accent) / <alpha-value>)',
+        danger : 'hsl(var(--danger) / <alpha-value>)',
+  
+        background: 'hsl(var(--background) / <alpha-value>)',
+        foreground: 'hsl(var(--foreground) / <alpha-value>)',
+  
+        dark: 'hsl(var(--input-background) / <alpha-value>)',
       },
     },
+
     plugins: [],
   },
 };
