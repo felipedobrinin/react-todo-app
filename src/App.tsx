@@ -61,8 +61,6 @@ function App() {
           setOpenModal={setOpenModal}
         />
       </main>
-
-      <footer></footer>
     </div>
   );
 }

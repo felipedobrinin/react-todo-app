@@ -17,6 +17,8 @@
     --border: 0, 0%, 23%;
 
     --duration: 100ms;
+
+    --input-outline : 2px solid hsl(var(--accent));
   }
 }
 
@@ -51,6 +53,18 @@ header {
   @apply p-4 md:p-6;
   border-radius: var(--radius);
 
+}
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+  place-self: center;
+  gap: 1rem;
+  margin: auto;
+
+  width: min(95%, 700px);
+  padding-top: 2.5%
 }
 
 button {
@@ -90,25 +104,13 @@ input[type=checkbox] {
 
 .text-input{
   outline: 0px solid transparent;
-
   transition: outline 50ms linear;  
 }
 
 .text-input:focus,
 .text-input:active,
 .text-input:hover {
-  outline: 2px solid hsl(var(--accent));
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  place-self: center;
-  gap: 1rem;
-  margin: auto;
-
-  width: min(95%, 700px);
-  padding-top: 2.5%
+  outline: var(--input-outline);
 }
 
 .search-input {
@@ -124,6 +126,12 @@ input[type=checkbox] {
   outline: none;
   background-color: transparent;
   width: 100%;
+}
+
+.search-input:has(input:focus),
+.search-input:has(input:active),
+.search-input:has(input:hover) {
+  outline: var(--input-outline);
 }
 
 .todo-item {
