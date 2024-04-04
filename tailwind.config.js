@@ -19,17 +19,17 @@ export default {
       borderRadius: {
         'normal' : 'var(--radius)',
       },
-      
+      colors: {
+        accent: 'hsl(var(--accent) / <alpha-value>)',
+        danger : 'hsl(var(--danger) / <alpha-value>)',
+  
+        background: 'hsl(var(--background) / <alpha-value>)',
+        foreground: 'hsl(var(--foreground) / <alpha-value>)',
+  
+        dark: 'hsl(var(--input-background) / <alpha-value>)',
+      },
     },
-    colors: {
-      accent: 'hsl(var(--accent) / <alpha-value>)',
-      danger : 'hsl(var(--danger) / <alpha-value>)',
 
-      background: 'hsl(var(--background) / <alpha-value>)',
-      foreground: 'hsl(var(--foreground) / <alpha-value>)',
-
-      input: 'hsl(var(--input-background) / <alpha-value>)',
-    },
     plugins: [],
   },
 };
