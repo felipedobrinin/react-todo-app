@@ -21,7 +21,7 @@ export const TodoList: React.FC<Props> = ({
   const [parent] = useAutoAnimate();
 
   return (
-    <div className="todo-list mb-10" ref={parent}>
+    <div className="todo-list" ref={parent}>
       {todos.length ? (
         todos.map((todo: Todo) => {
           if (!todo.text.toLowerCase().includes(search.toLowerCase())) return;

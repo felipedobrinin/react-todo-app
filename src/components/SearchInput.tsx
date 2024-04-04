@@ -31,7 +31,7 @@ export const SearchInput: React.FC<Props> = ({ value, setSearch }) => {
 
   return (
     <div
-      className="search-input"
+      className="search-input text-input"
       onClick={handleClick}
     >
       <FaSearch className="text-accent" />

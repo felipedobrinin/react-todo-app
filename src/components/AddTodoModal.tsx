@@ -47,7 +47,7 @@ export const AddTodoModal: React.FC<Props> = ({
   useEffect(() => {
     // Focus on input field when modal opens
     if (openModal && inputRef.current) {
-      inputRef.current.focus()
+      inputRef.current.focus();
     }
   }, [openModal, inputRef]);
 
@@ -70,23 +70,22 @@ export const AddTodoModal: React.FC<Props> = ({
     <div
       className={`${
         openModal ? "visible opacity-100" : "invisible opacity-0"
-      } modal flex flex-col gap-4 p-4 transition-[opacity] duration-300 md:p-8`}
+      } modal transition-[opacity] duration-300`}
     >
       <input
         type="text"
-        name=""
-        id=""
         placeholder="Todo text"
-        className="modal-input"
+        className="modal-input text-input"
         value={text}
         onChange={handleInputChange}
         onKeyDown={handleKeyPress}
         ref={inputRef}
       />
-      <div className="flex justify-between">
+      <div className="grid grid-flow-row grid-cols-[40%,auto,40%]">
         <button className="modal-button bg-danger" onClick={closeModal}>
-          <span>Cancel </span>
+          <span>Cancel</span>
         </button>
+        <div></div>
         <button className="modal-button bg-accent" onClick={handleAddTodo}>
           Add
         </button>

@@ -20,12 +20,11 @@ function App() {
 
   return (
     <div className="app">
-      <header className="flex flex-col gap-4  p-4 md:p-6">
+      <header>
         <h1 className="text-5xl font-bold text-center">TODOs</h1>
         <SearchInput value={search} setSearch={setSearch} />
         <div className="flex gap-2">
           <input
-            className="checkbox"
             type="checkbox"
             name=""
             id="show-completed"
@@ -37,37 +36,33 @@ function App() {
       </header>
 
       <main>
-      <TodoList
-        todos={todos}
-        markCompleted={markCompleted}
-        search={search}
-        showCompleted={showCompleted}
-        removeTodo={removeTodo}
-      />
-
-      <button
-        className={`${openModal ? "bg-danger" : "bg-accent"}
-         add-button p-4 rounded-full md:text-5xl text-7xl`}
-        onClick={handleButton}
-      >
-        <GoPlus
-          className={`${
-            openModal ? "rotate-45" : "rotate-0"
-          } transition-transform`}
+        <TodoList
+          todos={todos}
+          markCompleted={markCompleted}
+          search={search}
+          showCompleted={showCompleted}
+          removeTodo={removeTodo}
         />
-      </button>
 
-      <AddTodoModal
-        addTodo={addTodo}
-        openModal={openModal}
-        setOpenModal={setOpenModal}
-      />
+        <button
+          className={`${openModal ? "bg-danger" : "bg-accent"} add-button`}
+          onClick={handleButton}
+        >
+          <GoPlus
+            className={`${
+              openModal ? "rotate-45" : "rotate-0"
+            } transition-transform`}
+          />
+        </button>
+
+        <AddTodoModal
+          addTodo={addTodo}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+        />
       </main>
-      
 
-      <footer>
-        
-      </footer>
+      <footer></footer>
     </div>
   );
 }
